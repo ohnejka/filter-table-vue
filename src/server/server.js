@@ -22,8 +22,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Marketplace Fund", queryId: "marketplace-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8n9d003z0ztg943he27p",
+        title: "Marketplace Fund",
+        queryId: "marketplace-fund",
+      },
     ],
   },
   {
@@ -46,8 +50,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Marketplace Fund", queryId: "marketplace-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8n9d003z0ztg943he27p",
+        title: "Marketplace Fund",
+        queryId: "marketplace-fund",
+      },
     ],
   },
   {
@@ -70,8 +78,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Marketplace Fund", queryId: "marketplace-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8n9d003z0ztg943he27p",
+        title: "Marketplace Fund",
+        queryId: "marketplace-fund",
+      },
     ],
   },
   {
@@ -93,8 +105,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Liquidity Fund", queryId: "liquidity-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8e29003y0ztg5bbs8i36",
+        title: "Liquidity Fund",
+        queryId: "liquidity-fund",
+      },
     ],
   },
   {
@@ -117,8 +133,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Marketplace Fund", queryId: "marketplace-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8n9d003z0ztg943he27p",
+        title: "Marketplace Fund",
+        queryId: "marketplace-fund",
+      },
     ],
   },
   {
@@ -140,8 +160,12 @@ const PROJECTS = [
     },
     logoUrl: "",
     tabs: [
-      { title: "All funds", queryId: "all" },
-      { title: "Marketplace Fund", queryId: "marketplace-fund" },
+      { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
+      {
+        id: "ckyim8n9d003z0ztg943he27p",
+        title: "Marketplace Fund",
+        queryId: "marketplace-fund",
+      },
     ],
   },
 ];
@@ -168,15 +192,13 @@ const PAGE = {
   name: "Table",
   components: [
     {
-      id: "ckyio9xnj004t0ztggilr4myj",
-      type: "ProjectsTable",
-      data: {
-        title: "My portfolio companies",
-        firstColumnLabel: "Company",
-        secondColumnLabel: "Round",
-        thirdColumnLabel: "Geography",
-        fourthColumnLabel: "Sector",
-        fifthColumnLabel: "Bio",
+      title: "My portfolio companies",
+      columnLables: {
+        0: "Company",
+        1: "Round",
+        2: "Geography",
+        3: "Sector",
+        4: "Bio",
       },
     },
   ],

@@ -1,16 +1,7 @@
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
+import type { PageData, Project, Tab } from "../../bl/entities";
 import { mobileSortingOptions, type SortingItem } from "./mock";
-
-type ProjectTab = {
-  id: number;
-};
-type Project = {
-  tabs: any;
-  round: any;
-  sector: any;
-  location: any;
-};
 
 enum FilterTitle {
   Company = "company",
@@ -20,6 +11,12 @@ enum FilterTitle {
   Bio = "bio",
 }
 
+type StoreInitData = {
+  readonly page: PageData;
+  readonly tabs: ReadonlyArray<Tab>;
+  readonly projects: ReadonlyArray<Project>;
+};
+
 type ActiveFiltersData = {
   readonly tab: string;
   readonly [FilterTitle.Rounds]: string[];
@@ -27,10 +24,10 @@ type ActiveFiltersData = {
   readonly [FilterTitle.Geos]: string[];
 };
 
-export default defineStore("table", () => {
+export const tableStore = defineStore("table", () => {
   // state
-  const allTabs: Ref<ReadonlyArray<ProjectTab>> = ref([]);
-  const relevantTabs: Ref<ReadonlyArray<ProjectTab>> = ref([]);
+  const allTabs: Ref<ReadonlyArray<Tab>> = ref([]);
+  const relevantTabs: Ref<ReadonlyArray<Tab>> = ref([]);
   const allProjects: Ref<ReadonlyArray<Project>> = ref([]);
   const roundFilters: Ref<ReadonlyArray<string>> = ref([]);
   const sectorFilters: Ref<ReadonlyArray<string>> = ref([]);
@@ -49,13 +46,18 @@ export default defineStore("table", () => {
   ]);
 
   // actions
-  function setAllTabs(payload: ReadonlyArray<ProjectTab>) {
+  function init(payload: StoreInitData) {
+    setAllTabs(payload.tabs);
+    setAllProjects(payload.projects);
+  }
+
+  function setAllTabs(payload: ReadonlyArray<Tab>) {
     allTabs.value = [...payload];
   }
 
   function setAllProjects(payload: ReadonlyArray<Project>) {
     allProjects.value = payload;
-    setRevelantTab();
+    setRelevantTab();
     setRoundFilters();
     setSectorFilters();
     setGeoFilters();
@@ -83,16 +85,16 @@ export default defineStore("table", () => {
     mobileSorting.value = newOption;
   }
 
-  const setRevelantTab = (): void => {
+  const setRelevantTab = (): void => {
     const tabsFromProjectList = allProjects.value.map((x: Project) => {
-      const tabsIds = x.tabs.map((x: ProjectTab) => x.id);
+      const tabsIds = x.tabs.map((x: Tab) => x.id);
       return [tabsIds];
     });
 
     const flatArray = (tabsFromProjectList as any).flat(2);
     const tabsUniqueIds = Array.from(new Set(flatArray));
 
-    const filteredTabs = allTabs.value.filter((x: ProjectTab) =>
+    const filteredTabs = allTabs.value.filter((x: Tab) =>
       tabsUniqueIds.includes(x.id)
     );
 
@@ -139,6 +141,7 @@ export default defineStore("table", () => {
     mobileSorting,
     allMobileSortingOptions,
     // actions
+    init,
     setAllTabs,
     setAllProjects,
     setActiveFilters,
@@ -147,3 +150,6 @@ export default defineStore("table", () => {
     setActiveSortingItemByIndex,
   };
 });
+
+export type TableStore = typeof tableStore;
+export default tableStore;

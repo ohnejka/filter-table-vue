@@ -1,7 +1,11 @@
 <template>
-  <div class="layout">
-    <slot />
-  </div>
+  <Suspense>
+    <div class="layout">
+      <slot />
+    </div>
+
+    <template #fallback>Loading...</template>
+  </Suspense>
 </template>
 
 <script lang="ts">
