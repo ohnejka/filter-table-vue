@@ -1,0 +1,82 @@
+/* breakpoints */
+$MOBILE: 'screen and (max-width: 767px)';
+$TABLET: 'screen and (min-width: 768px) and (max-width: 1023px)';
+$MOBILE_TABLET: 'screen and (max-width: 1023px)';
+$TABLET_DESKTOP: 'screen and (min-width: 768px)';
+$DESKTOP: 'screen and (min-width: 1024px)';
+$DESKTOP_LARGE: 'screen and (min-width: 1440px)';
+$DESKTOP_SMALL: 'screen and (min-width: 1024px) and (max-width: 1280px)';
+
+
+/* fonts */
+$FW_THIN: 100;
+$FW_EXTRA_LIGHT: 200;
+$FW_ULTRA_LIGHT: $FW_EXTRA_LIGHT;
+$FW_LIGHT: 300;
+$FW_REGULAR: 400;
+$FW_NORMAL: $FW_REGULAR;
+$FW_MEDIUM: 500;
+$FW_SEMI_BOLD: 600;
+$FW_DEMI_BOLD: $FW_SEMI_BOLD;
+$FW_BOLD: 700;
+$FW_EXTRA_BOLD: 800;
+$FW_ULTRA_BOLD: $FW_EXTRA_BOLD;
+$FW_BLACK: 900;
+$FW_HEAVY: $FW_BLACK;
+
+
+/* column grid on desktop */
+$COL_COUNT_DESKTOP: 12;
+$COL_GAP_DESKTOP: 3.2rem;
+$CONTAINER_WIDTH_DESKTOP: 131rem;
+$CONTAINER_SIDE_OFFSET_DESKTOP: 3.2rem;
+
+/* column grid on tablet */
+$COL_COUNT_TABLE: 8;
+$COL_GAP_TABLET: 2rem;
+$CONTAINER_WIDTH_TABLET: auto;
+$CONTAINER_SIDE_OFFSET_TABLET: 4rem;
+
+/* column grid on mobile */
+$COL_COUNT_MOBILE: 4;
+$COL_GAP_MOBILE: 1rem;
+$CONTAINER_WIDTH_MOBILE: auto;
+$CONTAINER_SIDE_OFFSET_MOBILE: 2rem;
+
+/* layers */
+$zLayerHide: -1;
+/* hidden */
+$zLayerBack: 0;
+/* video, background */
+$zLayerContent: 3;
+/* content */
+$zLayerDecor1: 5;
+/* decor stuff */
+$zLayerDecor2: 6;
+/* spare */
+$zLayerSubNav: 7;
+/* spare */
+$zLayerSubInfo: 8;
+/* spare */
+$zLayerNav: 9;
+/* navigation, links */
+$zLayerOverlay: 10;
+/* poopups and similar */
+$zLayerTop: 15;
+/* open menu, top layer */
+$zLayerHeaderPopup: 20;
+/* popup in header */
+$zLayerPopups: 50;
+/* popups and similar */
+$zLayerTop: 100;
+/* open menu, top layer */
+
+/* easings */
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeInOutCirc: cubic-bezier(0.77, 0, 0.175, 1);
+$elastic: cubic-bezier(0, 1.4, 1, 1);
+
+$defaultEasing: cubic-bezier(0.4, 0, 0.2, 1);

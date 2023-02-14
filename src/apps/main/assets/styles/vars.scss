@@ -1,0 +1,44 @@
+@import '../../../../libs/styles/vars.scss';
+
+$TABLET_WIDTH: 768px;
+$DESKTOP_WIDTH: 1024px;
+$MOBILE_TINY_WIDTH: 320px;
+$DESKTOP_LARGE_WIDTH: 1440px;
+$DESKTOP_HD_WIDTH: 1920px;
+
+/* column grid on desktop */
+$COL_COUNT_DESKTOP: 6;
+$COL_GAP_DESKTOP: 3rem;
+$CONTAINER_WIDTH_DESKTOP: 125.4rem;
+$CONTAINER_SIDE_OFFSET_DESKTOP: 6rem;
+$VERTICAL_OFFSET_DESKTOP: 12.5rem;
+$COL_WIDTH_DESKTOP: calc(($CONTAINER-WIDTH-DESKTOP - ($COL-COUNT-DESKTOP - 1) * $COL-GAP-DESKTOP) / $COL-COUNT-DESKTOP);
+
+/* column grid on tablet */
+$COL_COUNT_TABLE: 6;
+$COL_GAP_TABLET: 3rem;
+$CONTAINER_WIDTH_TABLET: 100%;
+$CONTAINER_SIDE_OFFSET_TABLET: 5rem;
+$VERTICAL_OFFSET_TABLET: 4.5rem;
+
+
+/* column grid on mobile */
+$COL_COUNT_MOBILE: 12;
+$COL_GAP_MOBILE: 1rem;
+$CONTAINER_WIDTH_MOBILE: 100%;
+$CONTAINER_SIDE_OFFSET_MOBILE: 3rem;
+$VERTICAL_OFFSET_MOBILE: 5rem;
+
+/* colors */
+$white: #ffffff;
+$black: #000000;
+$pink: #ff2d55;
+/* optional */
+$blackHalf: #1b1b1b;
+$green: #62cf7a;
+$greenLight: #6fe78a;
+/* gray */
+$gray: #b5b5b5;
+$grayFA: #fafafa;
+$gray70: #707070;
+$grayLight: rgba(#707070, 0.09);
