@@ -193,7 +193,7 @@ const PAGE = {
   components: [
     {
       title: "My portfolio companies",
-      columnLables: {
+      columnLabels: {
         0: "Company",
         1: "Round",
         2: "Geography",

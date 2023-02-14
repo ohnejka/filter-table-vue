@@ -30,3 +30,22 @@ export type Project = {
   readonly logoUrl: string | null;
   readonly tabs: ReadonlyArray<Tab>;
 };
+
+export type ProjectWithCombinedFilters = {
+  readonly company: string;
+  readonly companyUrl: string;
+  readonly round: string;
+  readonly sector: string;
+  readonly location: string;
+  readonly description: string;
+  readonly bio: {
+    readonly label: string;
+    readonly list: ReadonlyArray<{
+      url: string;
+      type: string;
+    }>;
+  };
+  readonly logoUrl: string | null;
+  readonly tabs: ReadonlyArray<Tab>;
+  readonly allFilters: ReadonlyArray<string>;
+};

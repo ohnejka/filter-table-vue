@@ -17,7 +17,7 @@ type StoreInitData = {
   readonly projects: ReadonlyArray<Project>;
 };
 
-type ActiveFiltersData = {
+export type ActiveFiltersData = {
   readonly tab: string;
   readonly [FilterTitle.Rounds]: string[];
   readonly [FilterTitle.Sectors]: string[];
@@ -26,6 +26,11 @@ type ActiveFiltersData = {
 
 export const tableStore = defineStore("table", () => {
   // state
+  const tableTitles: Ref<
+    ReadonlyArray<{
+      [key: number]: string;
+    }>
+  > = ref([]);
   const allTabs: Ref<ReadonlyArray<Tab>> = ref([]);
   const relevantTabs: Ref<ReadonlyArray<Tab>> = ref([]);
   const allProjects: Ref<ReadonlyArray<Project>> = ref([]);
@@ -47,6 +52,7 @@ export const tableStore = defineStore("table", () => {
 
   // actions
   function init(payload: StoreInitData) {
+    setTableTitles(payload.page);
     setAllTabs(payload.tabs);
     setAllProjects(payload.projects);
   }
@@ -129,8 +135,14 @@ export const tableStore = defineStore("table", () => {
     geoFilters.value = sorted;
   };
 
+  const setTableTitles = (payload: PageData): void => {
+    const labels = payload.components[0].columnLabels;
+    tableTitles.value = labels;
+  };
+
   return {
     // state
+    tableTitles,
     allTabs,
     relevantTabs,
     allProjects,
