@@ -1,3 +1,36 @@
+:root {
+    --background: #fff;
+    --viewportHeight: 100vh;
+}
+
+html {
+    font-size: 10px;
+    font-family: $fontBasic, sans-serif;
+    height: 100%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: white;
+    color: $blackHalf;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     html {
         font-size: calc(7.5px + 1 * (100vw - 768px) / 255);
@@ -20,4 +53,39 @@
     html {
         font-size: 12px;
     }
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    min-height: 100%;
+    width: 100%;
+}
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.visually_hidden {
+    position: absolute !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0);
+    height: 1px !important;
+    width: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
 }

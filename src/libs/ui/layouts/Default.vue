@@ -16,7 +16,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .layout {
   display: flex;
   padding: 50px 100px;
