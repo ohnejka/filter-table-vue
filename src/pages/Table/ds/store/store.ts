@@ -3,7 +3,7 @@ import { ref, type Ref } from "vue";
 import type { PageData, Project, Tab } from "../../bl/entities";
 import { mobileSortingOptions, type SortingItem } from "./mock";
 
-enum FilterTitle {
+export enum FilterTitle {
   Company = "company",
   Rounds = "rounds",
   Sectors = "sectors",

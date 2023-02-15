@@ -1,8 +1,7 @@
 <template>
   <div class="table">
     <Tabs />
-    <!-- <TableHead :titles="tableTitles" class="table-head" />
-   -->
+    <TableHead :titles="tableTitles" class="table__head" />
     <div
       v-for="(project, index) in filteredAdaptedProjects"
       :key="index"
@@ -40,13 +39,14 @@ import type {
   Tab,
 } from "../../bl/entities";
 import Tabs from "../widgets/ProjectsTab/ui/index.vue";
+import TableHead from "./TableHead/TableHead.vue";
 
 export default defineComponent({
   name: "ProjectsTable",
   components: {
     Tabs,
     //   TableRow,
-    //   TableHead,
+    TableHead,
   },
   setup() {
     const isLoaded = ref(false);
@@ -156,12 +156,12 @@ export default defineComponent({
       }
     }
   }
-}
 
-.table-head {
-  @include desktop {
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+  &__head {
+    @include desktop {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>
