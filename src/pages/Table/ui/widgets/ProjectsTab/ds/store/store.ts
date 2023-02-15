@@ -1,4 +1,4 @@
-import { defineStore, type Store, type _UnwrapAll } from "pinia";
+import { defineStore } from "pinia";
 import { type Ref, ref } from "vue";
 
 export const tabsStore = defineStore("tabs", () => {

@@ -1,11 +1,11 @@
-import type { Tab } from "../../../../../bl/entities";
+import type { Ref } from "vue";
 import { storeToRefs } from "pinia";
 import type { RouteLocationNormalizedLoaded, Router } from "vue-router";
 import type {
   ActiveFiltersData,
   TableStore,
 } from "../../../../../ds/store/store";
-import type { Ref } from "vue";
+import type { Tab } from "../../../../../bl/entities";
 import type { TabsStore } from "../store/store";
 
 class TabsRepository {
