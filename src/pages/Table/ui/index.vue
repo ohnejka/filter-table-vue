@@ -1,5 +1,4 @@
 <template>
-  <div>content here...</div>
   <ProjectsTable />
 </template>
 

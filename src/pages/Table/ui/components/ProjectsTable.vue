@@ -1,7 +1,7 @@
 <template>
   <div class="table">
-    <!-- <Tabs class="tabs-wrapper" :tabs="tabs" />
-      <TableHead :titles="tableTitles" class="table-head" />
+    <Tabs />
+    <!-- <TableHead :titles="tableTitles" class="table-head" />
    -->
     <div
       v-for="(project, index) in filteredAdaptedProjects"
@@ -39,14 +39,15 @@ import type {
   ProjectWithCombinedFilters,
   Tab,
 } from "../../bl/entities";
+import Tabs from "../widgets/ProjectsTab/ui/index.vue";
 
 export default defineComponent({
   name: "ProjectsTable",
-  // components: {
-  //   Tabs,
-  //   TableRow,
-  //   TableHead,
-  // },
+  components: {
+    Tabs,
+    //   TableRow,
+    //   TableHead,
+  },
   setup() {
     const isLoaded = ref(false);
     const adaptedProjects: Ref<ProjectWithCombinedFilters[]> = ref([]);

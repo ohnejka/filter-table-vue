@@ -97,7 +97,9 @@ export const tableStore = defineStore("table", () => {
       return [tabsIds];
     });
 
+    // @todo: check config
     const flatArray = (tabsFromProjectList as any).flat(2);
+
     const tabsUniqueIds = Array.from(new Set(flatArray));
 
     const filteredTabs = allTabs.value.filter((x: Tab) =>
@@ -163,5 +165,5 @@ export const tableStore = defineStore("table", () => {
   };
 });
 
-export type TableStore = typeof tableStore;
+export type TableStore = ReturnType<typeof tableStore>;
 export default tableStore;

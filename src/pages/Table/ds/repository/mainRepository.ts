@@ -1,6 +1,6 @@
 import type { AxiosApi } from "@/apps/main/infrasturcture/api/axios";
-import type { Store } from "pinia";
 import type { PageData, Tab, Project } from "../../bl/entities";
+import type { TableStore } from "../store/store";
 
 interface MainQueryData {
   readonly page: PageData;
@@ -9,7 +9,7 @@ interface MainQueryData {
 }
 
 class MainRepository {
-  constructor(private api: AxiosApi, private store: Store) {}
+  constructor(private api: AxiosApi, private store: TableStore) {}
 
   init = async (): Promise<void> => {
     try {
@@ -27,8 +27,7 @@ class MainRepository {
       const data: MainQueryData = response.data[0];
 
       // . put into store
-      // @TODO: need to type
-      (this.store as any).init(data);
+      this.store.init(data);
 
       // . save in local storage
       // ...
