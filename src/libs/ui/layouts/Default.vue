@@ -35,7 +35,7 @@ export default defineComponent({
           }),
           false
         );
-        window.addEventListener("resize", debounce(100, false, setCSSVAR));
+        window.addEventListener("resize", debounce(100, setCSSVAR), false);
 
         mediaQueryHandler(mqStore, list.value);
       }
