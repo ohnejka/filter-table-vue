@@ -25,6 +25,7 @@ import useTableStore from "../../../../ds/store/store";
 import useTabsStore from "../ds/store/store";
 import { useRoute, useRouter } from "vue-router";
 import TabsRepository from "../ds/repository/mainRepository";
+import useMqStore from "@/libs/scripts/mediaQuery/store";
 
 export default defineComponent({
   name: "ProjectTabs",
@@ -38,6 +39,9 @@ export default defineComponent({
     const tabsStore = useTabsStore();
     const { currentTabIndex } = storeToRefs(tabsStore);
 
+    const mqStore = useMqStore();
+    const { isMobileMq } = storeToRefs(mqStore);
+
     const tabsRepo = new TabsRepository(tableStore, tabsStore, route, router);
 
     onMounted(() => tabsRepo.setupTabs());
@@ -49,10 +53,7 @@ export default defineComponent({
 
     // ui helpers
     const adaptTitle = (id: number, title: string): string => {
-      //@TODO isMobile/isDesktop mq
-      const isMobile = false;
-
-      return isMobile ? (id > 0 ? title.split(" ")[0] : title) : title;
+      return isMobileMq ? (id > 0 ? title.split(" ")[0] : title) : title;
     };
 
     return {

@@ -42,15 +42,7 @@
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  ref,
-  type ComputedRef,
-  type PropType,
-  type Ref,
-} from "vue";
+import { defineComponent, ref, type PropType } from "vue";
 import LayoutCol from "@/libs/ui/components/Col.vue";
 import LayoutRow from "@/libs/ui/components/Row.vue";
 import type { Project } from "../../../bl/entities";
@@ -73,9 +65,6 @@ export default defineComponent({
   setup() {
     const isActive = ref(false);
     const isHovered = ref(false);
-
-    // @todo
-    const isDesktop = ref(true);
 
     const setActive = (): void => {
       isHovered.value = true;

@@ -31,6 +31,8 @@
 import { defineComponent, ref, type PropType } from "vue";
 import MediumSvg from "./MeduimSvg.vue";
 import ArrowSvg from "./ArrowSvg.vue";
+import useMqStore from "@/libs/scripts/mediaQuery/store";
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
   name: "ProjectDescription",
@@ -55,8 +57,9 @@ export default defineComponent({
     },
   },
   setup() {
-    // @todo
-    const isDesktop = ref(true);
+    const mqStore = useMqStore();
+    const { isDesktopMq } = storeToRefs(mqStore);
+
     const isRoundLinkActive = ref(false);
 
     const setRoundLinkActive = (): void => {
@@ -67,7 +70,7 @@ export default defineComponent({
     };
 
     const resetRoundLinkOnClick = (): void => {
-      if (isDesktop.value) {
+      if (isDesktopMq.value) {
         resetRoundLinkActive();
       } else {
         setRoundLinkActive();
@@ -109,12 +112,9 @@ export default defineComponent({
   }
 
   &__label {
-    /* @todo */
     display: flex;
     margin-right: 1rem;
     align-items: center;
-    font-style: normal;
-    font-weight: normal;
     font-size: 1.4rem;
     line-height: 1.8rem;
     color: $gray02;
@@ -130,7 +130,7 @@ export default defineComponent({
     height: 1.3rem;
     margin-right: 1rem;
 
-    :deep svg {
+    &:deep(svg) {
       color: currentColor;
     }
   }
@@ -139,7 +139,7 @@ export default defineComponent({
     color: $gray;
     transition: color 0.2s $defaultEasing;
 
-    :deep svg {
+    &:deep(svg) {
       color: currentColor;
     }
 
