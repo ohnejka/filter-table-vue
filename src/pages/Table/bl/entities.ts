@@ -21,8 +21,8 @@ export type Project = {
   readonly bio: {
     readonly label: string;
     readonly list: ReadonlyArray<{
-      url: string;
-      type: string;
+      readonly url: string;
+      readonly type: string;
     }>;
   };
   readonly logoUrl: string | null;

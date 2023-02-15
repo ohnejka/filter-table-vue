@@ -7,8 +7,7 @@
       :key="index"
       class="table__row"
     >
-      {{ project.company }}
-      <!-- <TableRow :item="project" /> -->
+      <TableRow :item="project" />
     </div>
 
     <div
@@ -40,12 +39,13 @@ import type {
 } from "../../bl/entities";
 import Tabs from "../widgets/ProjectsTab/ui/index.vue";
 import TableHead from "./TableHead/TableHead.vue";
+import TableRow from "./TableRow/TableRow.vue";
 
 export default defineComponent({
   name: "ProjectsTable",
   components: {
     Tabs,
-    //   TableRow,
+    TableRow,
     TableHead,
   },
   setup() {

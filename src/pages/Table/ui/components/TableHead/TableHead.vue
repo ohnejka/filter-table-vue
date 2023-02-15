@@ -30,7 +30,7 @@ export default defineComponent({
   },
   props: {
     titles: {
-      type: Array as PropType<{ [key: number]: string }>,
+      type: Object as PropType<{ [key: number]: string }>,
       required: true,
     },
   },
