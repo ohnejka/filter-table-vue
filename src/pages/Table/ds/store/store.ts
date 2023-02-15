@@ -26,11 +26,7 @@ export type ActiveFiltersData = {
 
 export const tableStore = defineStore("table", () => {
   // state
-  const tableTitles: Ref<
-    ReadonlyArray<{
-      [key: number]: string;
-    }>
-  > = ref([]);
+  const tableTitles: Ref<{ [key: number]: string }> = ref([]);
   const allTabs: Ref<ReadonlyArray<Tab>> = ref([]);
   const relevantTabs: Ref<ReadonlyArray<Tab>> = ref([]);
   const allProjects: Ref<ReadonlyArray<Project>> = ref([]);

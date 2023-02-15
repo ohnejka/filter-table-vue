@@ -42,8 +42,6 @@ class TabsRepository {
     }
 
     // . if not - set defaults
-    console.log("Tab query empty or doesnt match tabs options from DB");
-
     const allTab = this.allTabs.value.find(
       (x: Tab) => x.queryId === TabsRepository.ALL_TAB_QUERY_ID
     );

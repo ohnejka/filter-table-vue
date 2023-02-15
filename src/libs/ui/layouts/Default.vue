@@ -19,6 +19,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .layout {
   display: flex;
+  flex-direction: column;
   padding: 50px 100px;
   min-height: 100vh;
 }

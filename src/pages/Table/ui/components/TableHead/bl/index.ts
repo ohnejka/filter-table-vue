@@ -1,6 +1,6 @@
 import { FilterTitle } from "@/pages/Table/ds/store/store";
 
-type OptionValue = {
+export type OptionValue = {
   readonly title: string;
   isChecked: boolean;
 };
@@ -19,21 +19,24 @@ type FilterPayload = {
 };
 
 export const prepareFiltersDataForUi = (
-  titles: ReadonlyArray<{ [key: number]: string }>,
+  titles: { [key: number]: string },
   filters: FilterPayload
 ): ReadonlyArray<FilterUI> => {
   const { roundFilters, geoFilters, sectorFilters } = filters;
 
-  // @todo: change data format, remove as string
+  const titlesArray: string[] = Object.keys(titles).map(
+    (key: string) => titles[+key]
+  );
+
   return [
     {
       id: FilterTitle.Company,
-      title: titles[0] as string,
+      title: titlesArray[0],
       isInteractive: false,
     },
     {
       id: FilterTitle.Rounds,
-      title: titles[1] as string,
+      title: titlesArray[1],
       isInteractive: true,
       options: roundFilters.map((x: string) => ({
         title: x,
@@ -42,7 +45,7 @@ export const prepareFiltersDataForUi = (
     },
     {
       id: FilterTitle.Geos,
-      title: titles[2] as string,
+      title: titlesArray[2],
       isInteractive: true,
       options: geoFilters.map((x: string) => ({
         title: x,
@@ -51,7 +54,7 @@ export const prepareFiltersDataForUi = (
     },
     {
       id: FilterTitle.Sectors,
-      title: titles[3] as string,
+      title: titlesArray[3],
       isInteractive: true,
       options: sectorFilters.map((x: string) => ({
         title: x,
@@ -60,7 +63,7 @@ export const prepareFiltersDataForUi = (
     },
     {
       id: FilterTitle.Bio,
-      title: titles[4] as string,
+      title: titlesArray[4],
       isInteractive: false,
     },
   ];

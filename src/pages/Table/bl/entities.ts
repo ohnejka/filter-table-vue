@@ -7,9 +7,7 @@ export type Tab = {
 export type PageData = {
   readonly components: ReadonlyArray<{
     readonly title: string;
-    readonly columnLabels: ReadonlyArray<{
-      [key: number]: string;
-    }>;
+    readonly columnLabels: { [key: number]: string };
   }>;
 };
 
