@@ -59,5 +59,13 @@ export default defineComponent({
   flex-direction: column;
   padding: 50px 100px;
   min-height: 100vh;
+
+  @include tablet {
+    padding: 40px 20px;
+  }
+
+  @include mobile {
+    padding: 20px 10px;
+  }
 }
 </style>

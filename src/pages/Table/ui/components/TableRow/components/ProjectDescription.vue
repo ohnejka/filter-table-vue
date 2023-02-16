@@ -3,7 +3,7 @@
     <p v-html="text" class="description__text" />
     <div v-if="links && links.length > 0" class="description__body">
       <div class="description__label">
-        <ArrowSvg class="description__label-arrow" />
+        <ArrowRightSvg class="description__label-arrow" />
 
         <span v-if="linksLabel"> {{ linksLabel }}</span>
       </div>
@@ -29,8 +29,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, type PropType } from "vue";
-import MediumSvg from "./MeduimSvg.vue";
-import ArrowSvg from "./ArrowSvg.vue";
+import MediumSvg from "../../../../../../libs/ui/components/SvgComponents/MeduimSvg.vue";
+import ArrowRightSvg from "../../../../../../libs/ui/components/SvgComponents/ArrowRightSvg.vue";
 import useMqStore from "@/libs/scripts/mediaQuery/store";
 import { storeToRefs } from "pinia";
 
@@ -38,7 +38,7 @@ export default defineComponent({
   name: "ProjectDescription",
   components: {
     MediumSvg,
-    ArrowSvg,
+    ArrowRightSvg,
   },
   props: {
     text: {

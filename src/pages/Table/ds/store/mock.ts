@@ -1,9 +1,10 @@
 export enum ProjectSorting {
+  NotSet = "NotSet",
   Company = "Company",
   Round = "Round",
-  Geography = "Geography",
+  Location = "Location",
   Sector = "Sector",
-  Bio = "Bio",
+  Description = "Description",
 }
 
 type SortDirection = "up" | "down";
@@ -37,12 +38,12 @@ export const mobileSortingOptions: ReadonlyArray<SortingItem> = [
   },
   {
     id: 5,
-    name: ProjectSorting.Geography,
+    name: ProjectSorting.Location,
     direction: "up",
   },
   {
     id: 6,
-    name: ProjectSorting.Geography,
+    name: ProjectSorting.Location,
     direction: "down",
   },
   {
@@ -57,12 +58,12 @@ export const mobileSortingOptions: ReadonlyArray<SortingItem> = [
   },
   {
     id: 9,
-    name: ProjectSorting.Bio,
+    name: ProjectSorting.Description,
     direction: "up",
   },
   {
     id: 10,
-    name: ProjectSorting.Bio,
+    name: ProjectSorting.Description,
     direction: "down",
   },
 ];

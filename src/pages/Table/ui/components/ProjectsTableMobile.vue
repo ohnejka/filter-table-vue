@@ -1,13 +1,13 @@
 <template>
   <div class="table">
-    <!-- <TableSortMobile class="table__sorting" /> -->
+    <TableSortMobile class="table__sorting" />
     <Tabs />
     <div
       v-for="(project, index) in filteredAdaptedProjects"
       :key="index"
       class="table__row"
     >
-      {{ project }}
+      {{ project.company }}
       <!-- <TableRowMobile :key="updateKey" :item="project" /> -->
     </div>
   </div>
@@ -31,12 +31,13 @@ import type {
   Tab,
 } from "../../bl/entities";
 import Tabs from "../widgets/ProjectsTab/ui/index.vue";
+import TableSortMobile from "./TableSortMobile.vue";
 
 export default defineComponent({
   name: "ProjectsTableMobile",
   components: {
     Tabs,
-    // TableSortMobile,
+    TableSortMobile,
     // TableRowMobile,
   },
   setup() {
@@ -45,8 +46,7 @@ export default defineComponent({
     const adaptedProjects: Ref<ProjectWithCombinedFilters[]> = ref([]);
 
     const store = useTableStore();
-    const { allProjects, tableTitles, activeFilters, mobileSorting } =
-      storeToRefs(store);
+    const { allProjects, activeFilters, mobileSorting } = storeToRefs(store);
 
     const filteredAdaptedProjects: Ref<
       ReadonlyArray<ProjectWithCombinedFilters>
@@ -70,14 +70,6 @@ export default defineComponent({
 
       // . else, do the sorting
       let nameToSortBy: string = mobileSorting.value.name.toLowerCase();
-
-      // @todo: fix of naming form admin
-      if (nameToSortBy === "geography") {
-        nameToSortBy = "location";
-      }
-      if (nameToSortBy === "bio") {
-        nameToSortBy = "description";
-      }
 
       const direction = mobileSorting.value.direction;
 
@@ -150,6 +142,7 @@ export default defineComponent({
       position: relative;
       width: 45%;
       left: -1.5rem;
+      margin-bottom: 5rem;
     }
   }
 
