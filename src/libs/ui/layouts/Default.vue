@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount, onMounted } from "vue";
+import { defineComponent, onMounted, onUnmounted } from "vue";
 import { mediaQueryHandler } from "@/libs/scripts/mediaQuery";
 import { debounce } from "throttle-debounce";
 import useMqStore from "@/libs/scripts/mediaQuery/store";
@@ -18,6 +18,20 @@ import { storeToRefs } from "pinia";
 export default defineComponent({
   name: "DefaultLayout",
   setup() {
+    const mqStore = useMqStore();
+    const { list } = storeToRefs(mqStore);
+
+    const setCSSVAR = (): void => {
+      const root = document.documentElement;
+      root.style.setProperty("--viewportHeight", window.innerHeight + "px");
+    };
+
+    const debouncedMqHandler = debounce(50, () => {
+      mediaQueryHandler(mqStore, list.value);
+    });
+
+    const debouncedSetCSSVar = debounce(100, setCSSVAR);
+
     onMounted(() => {
       if (typeof window !== "undefined") {
         console.log(
@@ -25,30 +39,17 @@ export default defineComponent({
           "color:#32CD32; font-size: 12px; line-height: 27px"
         );
 
-        const mqStore = useMqStore();
-        const { list } = storeToRefs(mqStore);
-
-        window.addEventListener(
-          "resize",
-          debounce(50, () => {
-            mediaQueryHandler(mqStore, list.value);
-          }),
-          false
-        );
-        window.addEventListener("resize", debounce(100, setCSSVAR), false);
+        window.addEventListener("resize", debouncedMqHandler, false);
+        window.addEventListener("resize", debouncedSetCSSVar, false);
 
         mediaQueryHandler(mqStore, list.value);
       }
     });
 
-    onBeforeUnmount(() => {
-      window.removeEventListener("resize", mediaQueryHandler, false);
+    onUnmounted(() => {
+      window.removeEventListener("resize", debouncedMqHandler, false);
+      window.removeEventListener("resize", debouncedSetCSSVar, false);
     });
-
-    const setCSSVAR = (): void => {
-      const root = document.documentElement;
-      root.style.setProperty("--viewportHeight", window.innerHeight + "px");
-    };
   },
 });
 </script>

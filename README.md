@@ -1,52 +1,33 @@
 # filter-table
 
-This template should help get you started developing with Vue 3 in Vite.
+🖐 Hey, this is a quick test project to try some code architecture on front-end side table sorting.
 
-## Recommended IDE Setup
+## About
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
+This is a Vue 3 + Vite + Typescript app.
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+starts both vue and express
 
-```sh
-npm run build
-```
+## Folders structure
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+1. /apps - folder for app ignition. this app is the only one in the project, but there could also be a admin variation with more info to display
 
-```sh
-npm run test:unit
-```
+   1. inside: /assets, /infra (global dependencies for the whole app - store, router, api), /ui - index.vue which bootstraps the app
 
-### Lint with [ESLint](https://eslint.org/)
+2. /libs - anythins that can be reused in any project: ui components, error and validation rules, routine store setups, styles etc
+3. /server - mock express server which provides data
+4. /pages - pages of the app. this app has only one page.
+   1. as any module, every page can contain BL (business logics), UI, DS (data source) layers
+   2. in Table/ui/widgets I put a ProjectsTab component, which is not really a widget, but I wanted to compose it as if it was, to extract logics into layers
+   3. in Table/ui/components I wrote all logics in SFC - just to compare with widget structure
 
-```sh
-npm run lint
-```
+what else could be in the root: 5. /widgets - global widgets that can be reused by any other module in this project
+
+## Benefits
+
+With this kind of code organisation, it's simple to undestrand dependencies level.
+You always know where to write any additional required logics - in BL or DS or UI.
