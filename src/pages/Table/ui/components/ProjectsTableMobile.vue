@@ -7,8 +7,7 @@
       :key="index"
       class="table__row"
     >
-      {{ project.company }}
-      <!-- <TableRowMobile :key="updateKey" :item="project" /> -->
+      <TableRowMobile :key="updateKey" :item="project" />
     </div>
   </div>
 </template>
@@ -32,13 +31,14 @@ import type {
 } from "../../bl/entities";
 import Tabs from "../widgets/ProjectsTab/ui/index.vue";
 import TableSortMobile from "./TableSortMobile.vue";
+import TableRowMobile from "./TableRow/TableRowMobile.vue";
 
 export default defineComponent({
   name: "ProjectsTableMobile",
   components: {
     Tabs,
     TableSortMobile,
-    // TableRowMobile,
+    TableRowMobile,
   },
   setup() {
     const isLoaded = ref(false);

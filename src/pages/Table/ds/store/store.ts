@@ -33,6 +33,7 @@ export const tableStore = defineStore("table", () => {
   const roundFilters: Ref<ReadonlyArray<string>> = ref([]);
   const sectorFilters: Ref<ReadonlyArray<string>> = ref([]);
   const geoFilters: Ref<ReadonlyArray<string>> = ref([]);
+  const isError = ref(false);
 
   const activeFilters: Ref<ActiveFiltersData> = ref({
     tab: "",
@@ -85,6 +86,10 @@ export const tableStore = defineStore("table", () => {
   function setActiveSortingItemByIndex(index: number) {
     const newOption = allMobileSortingOptions.value[index];
     mobileSorting.value = newOption;
+  }
+
+  function setIsError(flag: boolean) {
+    isError.value = flag;
   }
 
   const setRelevantTab = (): void => {
@@ -150,6 +155,7 @@ export const tableStore = defineStore("table", () => {
     activeFilters,
     mobileSorting,
     allMobileSortingOptions,
+    isError,
     // actions
     init,
     setAllTabs,
@@ -158,6 +164,7 @@ export const tableStore = defineStore("table", () => {
     clearActiveFilters,
     setActiveSortingItem,
     setActiveSortingItemByIndex,
+    setIsError,
   };
 });
 

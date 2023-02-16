@@ -1,6 +1,14 @@
 <template>
-  <ProjectsTable v-if="isDesktopMq" />
-  <ProjectsTableMobile v-else />
+  <div v-if="isError">
+    <h1 class="error">
+      <p>Sorry, can't fetch data from server.</p>
+      <p>Please come back later...</p>
+    </h1>
+  </div>
+  <div v-else>
+    <ProjectsTable v-if="isDesktopMq" />
+    <ProjectsTableMobile v-else />
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,18 +29,30 @@ export default defineComponent({
   },
 
   async setup() {
-    const store = useTableStore();
+    const tableStore = useTableStore();
+    const { isError } = storeToRefs(tableStore);
 
     const mqStore = useMqStore();
     const { isDesktopMq } = storeToRefs(mqStore);
 
     // . init repo and get data from server
-    const repo = new Repository(axiosApi, store);
+    const repo = new Repository(axiosApi, tableStore);
     await repo.init();
 
     return {
       isDesktopMq,
+      isError,
     };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.error {
+  color: $green;
+
+  p + p {
+    margin-top: 1rem;
+  }
+}
+</style>

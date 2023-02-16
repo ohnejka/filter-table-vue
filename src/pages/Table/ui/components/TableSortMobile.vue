@@ -94,7 +94,7 @@ export default defineComponent({
     user-select: none;
     transform: rotate(135deg) translateX(-10px);
     transform-origin: center center;
-    transition: rotate 0.3s $easeInOutExpo, translate 0.3s $easeInOutExpo;
+    transition: rotate 0.2s $defaultEasing, translate 0.2s $defaultEasing;
   }
 
   &__label {

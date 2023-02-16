@@ -278,7 +278,7 @@ export default defineComponent({
       transform: rotate(135deg);
       transform-origin: center center;
       cursor: pointer;
-      transition: rotate 0.3s $easeInOutSine, transform 0.3s $easeInOutSine;
+      transition: rotate 0.2s $defaultEasing, transform 0.2s $defaultEasing;
     }
   }
 
@@ -317,7 +317,7 @@ export default defineComponent({
     position: relative;
     display: block;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s $defaultEasing;
 
     @include desktop {
       &:hover {

@@ -25,7 +25,7 @@ export type Project = {
       readonly type: string;
     }>;
   };
-  readonly logoUrl: string | null;
+  readonly logoEmoji: string;
   readonly tabs: ReadonlyArray<Tab>;
 };
 
@@ -43,7 +43,7 @@ export type ProjectWithCombinedFilters = {
       type: string;
     }>;
   };
-  readonly logoUrl: string | null;
+  readonly logoEmoji: string;
   readonly tabs: ReadonlyArray<Tab>;
   readonly allFilters: ReadonlyArray<string>;
 };

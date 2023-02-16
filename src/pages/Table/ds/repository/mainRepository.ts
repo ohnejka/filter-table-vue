@@ -13,6 +13,9 @@ class MainRepository {
 
   init = async (): Promise<void> => {
     try {
+      // . reset error status
+      this.store.setIsError(false);
+
       // . check if it's in local storage
       // ...
 
@@ -20,7 +23,8 @@ class MainRepository {
       const response = await this.api.get();
 
       if (response.status !== 200) {
-        console.error("@TODO: error in MainRepository .getData()");
+        this.store.setIsError(true);
+        console.error("Error while fetching data from server");
         return;
       }
 
@@ -32,7 +36,8 @@ class MainRepository {
       // . save in local storage
       // ...
     } catch (e) {
-      console.error("@TODO: error in MainRepository .getData()");
+      this.store.setIsError(true);
+      console.error("Error while fetching data from server");
     }
   };
 }

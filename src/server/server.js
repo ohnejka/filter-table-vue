@@ -20,7 +20,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "🔥",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {
@@ -48,7 +48,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "🌚",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {
@@ -76,7 +76,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "⭐️",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {
@@ -103,7 +103,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "🍟",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {
@@ -131,7 +131,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "👩🏽‍💻",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {
@@ -158,7 +158,7 @@ const PROJECTS = [
         },
       ],
     },
-    logoUrl: "",
+    logoEmoji: "🖐",
     tabs: [
       { id: "ckyim83n7003x0ztgawqd3n7h", title: "All funds", queryId: "all" },
       {

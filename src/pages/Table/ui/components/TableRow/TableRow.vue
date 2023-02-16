@@ -13,6 +13,9 @@
           class="table-row__company-link"
           target="_blank"
         >
+          <span class="table-row__emoji-box">
+            {{ item.logoEmoji }}
+          </span>
           <span class="table-row__company-name">{{ item.company }}</span>
         </a>
       </LayoutCol>
@@ -97,12 +100,16 @@ export default defineComponent({
       .table-row__company-name {
         color: pink;
       }
+
+      .table-row__emoji-box {
+        opacity: 1;
+      }
     }
   }
 
   &__company-name {
     color: $green;
-    transition: color 0.2s ease;
+    transition: color 0.2s $defaultEasing;
   }
 
   &__column {
@@ -116,6 +123,13 @@ export default defineComponent({
     flex-direction: column;
     width: 100%;
     height: 100%;
+  }
+
+  &__emoji-box {
+    position: absolute;
+    top: 4rem;
+    opacity: 0;
+    transition: opacity 0.2s $defaultEasing;
   }
 }
 </style>

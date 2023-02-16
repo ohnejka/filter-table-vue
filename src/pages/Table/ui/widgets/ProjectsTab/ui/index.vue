@@ -70,7 +70,7 @@ export default defineComponent({
 .tabs {
   &__body {
     display: flex;
-    border-bottom: 0.1rem solid #f2f2f2;
+    border-bottom: 0.1rem solid $gray01;
   }
 
   &__item-wrapper {
