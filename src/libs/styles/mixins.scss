@@ -1,0 +1,160 @@
+/*! mixins */
+// @mixin font-face($font-name, $file-path, $weight: 'normal', $style: 'normal') {
+//     $url: 'url("'+$file-path +'.woff2") format("woff2"), ';
+//     $url: $url +'url("'+$file-path +'.woff") format("woff")';
+
+//     @font-face {
+//         font-family: $font-name;
+//         src: unquote($url);
+//         font-display: auto;
+//         font-weight: unquote($weight);
+//         font-style: unquote($style);
+//     }
+// }
+
+@mixin font($font-size,
+    $line-height: 'normal',
+    $font-weight: 500,
+    $font-name: $STYRENE,
+    $letter-spacing: 0) {
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+    font-family: $font-name;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin img() {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@mixin user-select() {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+@mixin obj-fit() {
+    object-fit: cover;
+    object-position: top;
+    font-family: 'object-fit: cover; object-position: top;';
+    width: 100%;
+    display: block;
+}
+
+@mixin button-reset() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+    /* Remove excess padding and border in Firefox 4+ */
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+@mixin accentTitle() {
+    font-size: 3.9rem;
+    line-height: 4rem;
+    letter-spacing: -0.01em;
+    font-family: 'SBSansDisplay';
+    text-transform: lowercase;
+    font-weight: 500;
+}
+
+@mixin accentTitleSmall() {
+    font-size: 2.8rem;
+    line-height: 3rem;
+    letter-spacing: -0.01em;
+    font-family: 'SBSansDisplay';
+    text-transform: lowercase;
+    font-weight: 500;
+}
+
+@mixin accentSmall() {
+    font-size: 2.8rem;
+    line-height: 3rem;
+    letter-spacing: -0.01em;
+}
+
+$widthTablet: $TABLET_WIDTH;
+$widthDesktop: $DESKTOP_WIDTH;
+$widthDesktopLarge: $DESKTOP_LARGE_WIDTH;
+$mobileTinyWidth: $MOBILE_TINY_WIDTH;
+$widthDesktopHD: $DESKTOP_HD_WIDTH;
+
+@mixin mobileTiny {
+    @media (max-width: #{$mobileTinyWidth}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$widthTablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin mobile_tablet {
+    @media (max-width: #{$widthDesktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$widthTablet}) and (max-width: #{$widthDesktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet_desktop {
+    @media (min-width: #{$widthTablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$widthDesktop}) {
+        @content;
+    }
+}
+
+@mixin desktop_large {
+    @media (min-width: #{$widthDesktopLarge}) {
+        @content;
+    }
+}
+
+@mixin widthDesktopHD {
+    @media (min-width: #{$widthDesktopHD}) {
+        @content;
+    }
+}
